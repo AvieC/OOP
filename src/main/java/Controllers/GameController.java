@@ -38,7 +38,7 @@ public class GameController implements Initializable {
 	@Override
 	public void initialize(URL location, ResourceBundle resources) {
 		Question question = questions.get(currentQuestionIndex);
-		questionLabel.setText("Câu " + (currentQuestionIndex + 1) + ": " + question.getQuestionText());
+		questionLabel.setText("Question " + (currentQuestionIndex + 1) + ": " + question.getQuestionText());
 		if (question.getType().equals(MULTIPLE_CHOICE)) {
 			answerField.setVisible(false);
 			answerTitle.setVisible(false);
@@ -83,14 +83,6 @@ public class GameController implements Initializable {
             }
         });
         
-        setupQuestionButtons();
-        
-//        optionA.minHeightProperty().bind(optionA.heightProperty());
-//        optionB.minHeightProperty().bind(optionB.heightProperty());
-//        optionC.minHeightProperty().bind(optionC.heightProperty());
-//        optionD.minHeightProperty().bind(optionD.heightProperty());
-        
-        
 		scoreLabel.setText("Score: " + score);
 		submitButton.setDisable(true);
 		correctLabel.setVisible(false);
@@ -98,16 +90,6 @@ public class GameController implements Initializable {
 		correctAnswerTitle.setVisible(false);
 		correctAnswerContent.setVisible(false);
 		answerField.clear();
-	}
-	
-	private void setupQuestionButtons() {
-	    // Set wrapText and bind minHeight to heightProperty for automatic height adjustment
-	    Button[] buttons = {optionA, optionB, optionC, optionD};
-	    for (Button button : buttons) {
-	        button.setWrapText(true);
-	        button.setMaxWidth(200); // Giới hạn chiều rộng tối đa cho phép
-	        button.minHeightProperty().bind(button.heightProperty());
-	    }
 	}
 	
 	@FXML
@@ -209,7 +191,7 @@ public class GameController implements Initializable {
 	    if (currentQuestionIndex < questions.size()) {
 	    	resetButtonColors();
 	        Question question = questions.get(currentQuestionIndex);
-	        questionLabel.setText("Câu " + (currentQuestionIndex + 1) + ": " + question.getQuestionText());
+	        questionLabel.setText("Question " + (currentQuestionIndex + 1) + ": " + question.getQuestionText());
 	        // Cập nhật giao diện dựa trên loại câu hỏi
 	        if (question.getType().equals(MULTIPLE_CHOICE)) {
 	            // Tương tự như đã thiết lập trong `initialize()`
