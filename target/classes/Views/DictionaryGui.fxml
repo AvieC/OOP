@@ -19,7 +19,7 @@
                 </ImageView>
             </graphic>
          <tooltip>
-            <Tooltip fx:id="tooltip5" text="Thoát" />
+            <Tooltip fx:id="tooltip5" text="Exit" />
          </tooltip>
         </Button>
           <Button fx:id="searchWordBtn" alignment="BASELINE_LEFT" contentDisplay="GRAPHIC_ONLY" layoutX="4.0" layoutY="94.0" mnemonicParsing="false" prefHeight="45.0" prefWidth="45.0" styleClass="menu-item" stylesheets="@../Utils/style.css" text="     Search">
@@ -30,7 +30,7 @@
                   <Cursor fx:constant="HAND" />
               </cursor>
               <tooltip>
-                  <Tooltip fx:id="tooltip1" text="Tra từ điển" />
+                  <Tooltip fx:id="tooltip1" text="Search" />
               </tooltip>
          <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -48,7 +48,7 @@
                   <Cursor fx:constant="HAND" />
               </cursor>
               <tooltip>
-                  <Tooltip fx:id="tooltip2" text="Thêm từ vựng mới" />
+                  <Tooltip fx:id="tooltip2" text="Add new word" />
               </tooltip>
          <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -66,7 +66,7 @@
                   <Cursor fx:constant="HAND" />
               </cursor>
               <tooltip>
-                  <Tooltip fx:id="tooltip3" text="Phiên dịch" />
+                  <Tooltip fx:id="tooltip3" text="Translate" />
               </tooltip>
          <graphic>
                   <ImageView fitHeight="25.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
@@ -84,7 +84,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
          <tooltip>
-            <Tooltip fx:id="tooltip4" text="Trò chơi" />
+            <Tooltip fx:id="tooltip4" text="Game" />
          </tooltip>
          <graphic>
             <ImageView fitHeight="28.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">

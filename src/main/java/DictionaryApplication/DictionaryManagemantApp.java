@@ -24,7 +24,8 @@ public class DictionaryManagemantApp {
                 word.setWord_target(englishWord.trim());
                 String meaning = line + "\n";
                 while ((line = bufferedReader.readLine()) != null)
-                    if (!line.startsWith("|")) meaning += line + "\n";
+                    if (!line.startsWith("|")) 
+                    	meaning += line + "\n";
                     else {
                         englishWord = line.replace("|", "");
                         break;

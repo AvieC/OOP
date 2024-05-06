@@ -291,6 +291,9 @@
 	-fx-font-weight: bold;
 	-fx-font-size: 20;
 	-fx-wrap-text: true;
+	-fx-min-height:91;
+	-fx-pref-height: 91;
+	-fx-max-height: Infinity
 }
 .separator{
 	-fx-background-color: #333;
@@ -305,4 +308,11 @@
 	-fx-padding: 12;
 	-fx-font-weight: bold;
 	-fx-background-color: #c8f415;
+}
+.timerLabel{
+	-fx-background-radius: 50%;
+	-fx-background-color: 'blue';
+	-fx-text-fill: #fff;
+	-fx-font-weight: bold;
+	-fx-font-size: 30
 }

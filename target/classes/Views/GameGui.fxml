@@ -26,17 +26,13 @@
                         <Image url="@../Utils/images/gamelogo.png" />
                      </image>
                   </ImageView>
-                  <ImageView fitHeight="78.0" fitWidth="110.0" layoutX="617.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@../Utils/images/img1.jpg" />
-                     </image>
-                  </ImageView>
                   <Label layoutX="278.0" layoutY="24.0" prefHeight="44.0" prefWidth="196.0" text="Practice makes perfect">
                      <font>
                         <Font name="System Bold Italic" size="18.0" />
                      </font>
                   </Label>
                   <Separator layoutX="276.0" layoutY="81.0" prefWidth="200.0" stylesheets="@../Utils/style.css" />
+                  <Label fx:id="timerLabel" alignment="CENTER" layoutX="633.0" layoutY="5.0" prefHeight="82.0" prefWidth="82.0" styleClass="timerLabel" stylesheets="@../Utils/style.css" text="5" />
                </children>
             </Pane>
             <AnchorPane layoutY="105.0" prefHeight="404.0" prefWidth="770.0">
@@ -46,10 +42,10 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Button fx:id="optionA" layoutX="34.0" layoutY="145.0" mnemonicParsing="false" onAction="#handleOptionAction" minHeight="91.0" prefHeight="91.0" maxHeight="Infinity" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="A" />
-                  <Button fx:id="optionB" layoutX="445.0" layoutY="151.0" mnemonicParsing="false" onAction="#handleOptionAction" minHeight="91.0" prefHeight="91.0" maxHeight="Infinity" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="B" />
-                  <Button fx:id="optionC" layoutX="34.0" layoutY="276.0" mnemonicParsing="false" onAction="#handleOptionAction" minHeight="91.0" prefHeight="91.0" maxHeight="Infinity" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="C" />
-                  <Button fx:id="optionD" layoutX="445.0" layoutY="273.0" mnemonicParsing="false" onAction="#handleOptionAction" minHeight="91.0" prefHeight="91.0" maxHeight="Infinity" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="D" />
+                  <Button fx:id="optionA" layoutX="34.0" layoutY="145.0" maxHeight="Infinity" minHeight="91.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="91.0" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="A" />
+                  <Button fx:id="optionB" layoutX="445.0" layoutY="151.0" maxHeight="Infinity" minHeight="91.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="91.0" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="B" />
+                  <Button fx:id="optionC" layoutX="34.0" layoutY="276.0" maxHeight="Infinity" minHeight="91.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="91.0" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="C" />
+                  <Button fx:id="optionD" layoutX="445.0" layoutY="273.0" maxHeight="Infinity" minHeight="91.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="91.0" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="D" />
                   <TextField fx:id="answerField" layoutX="185.0" layoutY="157.0" prefHeight="60.0" prefWidth="381.0" styleClass="answerFieldText" stylesheets="@../Utils/style.css" />
                   <Label fx:id="answerTitle" alignment="CENTER" layoutX="34.0" layoutY="165.0" prefHeight="44.0" prefWidth="128.0" text="Your Answer:">
                      <font>

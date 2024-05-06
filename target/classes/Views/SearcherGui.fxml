@@ -33,7 +33,7 @@
             </Label>
             <Pane fx:id="searchBox" layoutX="226.0" layoutY="20.0" prefHeight="35.0" prefWidth="292.0" styleClass="search-box">
                <children>
-                      <TextField fx:id="searchTerm" layoutX="29.0" layoutY="3.0" prefHeight="30.0" prefWidth="230.0" promptText="Nhập từ cần tìm kiếm ..." styleClass="search-field" stylesheets="@../Utils/style.css" />
+                      <TextField fx:id="searchTerm" layoutX="29.0" layoutY="3.0" prefHeight="30.0" prefWidth="230.0" promptText="Enter the word to search ..." styleClass="search-field" stylesheets="@../Utils/style.css" />
                         <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="11.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
                             <image>
                                 <Image url="@../Utils/icons/icons8_search_24px.png" />
