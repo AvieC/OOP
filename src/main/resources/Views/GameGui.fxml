@@ -46,13 +46,13 @@
                   <Button fx:id="optionB" layoutX="445.0" layoutY="151.0" maxHeight="Infinity" minHeight="91.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="91.0" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="B" />
                   <Button fx:id="optionC" layoutX="34.0" layoutY="276.0" maxHeight="Infinity" minHeight="91.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="91.0" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="C" />
                   <Button fx:id="optionD" layoutX="445.0" layoutY="273.0" maxHeight="Infinity" minHeight="91.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="91.0" prefWidth="170.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="D" />
-                  <TextField fx:id="answerField" layoutX="185.0" layoutY="157.0" prefHeight="60.0" prefWidth="381.0" styleClass="answerFieldText" stylesheets="@../Utils/style.css" />
-                  <Label fx:id="answerTitle" alignment="CENTER" layoutX="34.0" layoutY="165.0" prefHeight="44.0" prefWidth="128.0" text="Your Answer:">
+                  <TextField fx:id="answerField" layoutX="175.0" layoutY="121.0" prefHeight="60.0" prefWidth="381.0" styleClass="answerFieldText" stylesheets="@../Utils/style.css" />
+                  <Label fx:id="answerTitle" alignment="CENTER" layoutX="34.0" layoutY="129.0" prefHeight="44.0" prefWidth="128.0" text="Your Answer:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="correctLabel" alignment="CENTER" layoutX="591.0" layoutY="157.0" prefHeight="60.0" prefWidth="141.0" styleClass="success-alert" stylesheets="@../Utils/style.css" text="Correct">
+                  <Label fx:id="correctLabel" alignment="CENTER" layoutX="591.0" layoutY="121.0" prefHeight="60.0" prefWidth="141.0" styleClass="success-alert" stylesheets="@../Utils/style.css" text="Correct">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -61,8 +61,8 @@
                         </ImageView>
                      </graphic>
                   </Label>
-                  <Button fx:id="submitButton" layoutX="283.0" layoutY="254.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="44.0" prefWidth="128.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="Submit" />
-                  <Label fx:id="incorrectLabel" alignment="CENTER" layoutX="591.0" layoutY="157.0" prefHeight="60.0" prefWidth="141.0" styleClass="fail-alert" stylesheets="@../Utils/style.css" text="Incorrect">
+                  <Button fx:id="submitButton" layoutX="277.0" layoutY="212.0" mnemonicParsing="false" onAction="#handleOptionAction" prefHeight="44.0" prefWidth="128.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="Submit" />
+                  <Label fx:id="incorrectLabel" alignment="CENTER" layoutX="591.0" layoutY="121.0" prefHeight="60.0" prefWidth="141.0" styleClass="fail-alert" stylesheets="@../Utils/style.css" text="Incorrect">
                      <graphic>
                         <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
                            <image>
@@ -72,16 +72,17 @@
                      </graphic>
                   </Label>
                   <Label fx:id="scoreLabel" alignment="CENTER" layoutX="631.0" layoutY="14.0" prefHeight="72.0" prefWidth="111.0" styleClass="scoreLabel" stylesheets="@../Utils/style.css" text="Điểm số" />
-                  <Label fx:id="correctAnswerTitle" alignment="CENTER" layoutX="34.0" layoutY="165.0" prefHeight="44.0" prefWidth="142.0" text="Correct Answer:">
+                  <Label fx:id="correctAnswerTitle" alignment="CENTER" layoutX="27.0" layoutY="205.0" prefHeight="44.0" prefWidth="142.0" text="Correct Answer:">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
-                  <Label fx:id="correctAnswerContent" layoutX="185.0" layoutY="158.0" prefHeight="60.0" prefWidth="382.0" styleClass="correctAnswerContent" stylesheets="@../Utils/style.css" text="Correct Answer">
+                  <Label fx:id="correctAnswerContent" layoutX="174.0" layoutY="197.0" prefHeight="60.0" prefWidth="382.0" styleClass="correctAnswerContent" stylesheets="@../Utils/style.css" text="Correct Answer">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </Label>
+                  <Button fx:id="restartGame" layoutX="277.0" layoutY="167.0" mnemonicParsing="false" onAction="#handleRestartGameAction" prefHeight="44.0" prefWidth="128.0" styleClass="optionButton" stylesheets="@../Utils/style.css" text="Restart" />
                </children></AnchorPane>
          </children>
       </AnchorPane>

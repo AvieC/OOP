@@ -3,7 +3,6 @@ package Controllers;
 import javafx.event.ActionEvent;
 import java.io.*;
 import java.net.URL;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 import java.util.ResourceBundle;
@@ -19,7 +18,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.text.Text;
 
 public class GameController implements Initializable {
 	private static final String MULTIPLE_CHOICE = "MC";
@@ -27,12 +25,12 @@ public class GameController implements Initializable {
 	private static final String SHORT_ANSWER = "SA";
 	private int currentQuestionIndex = 0;
 	private int score = 0;
-	private int maxQuestions = 5; // Số câu hỏi tối đa
-	private int answerTime = 30; // Thời gian trả lời mỗi câu hỏi là 30 giây
+	private int maxQuestions = 10; // Số lượng câu hỏi
+	private int answerTime;
 	private boolean hasAnswered = false;
 	private Timer timer;
 	private List<Question> questions;
-	private List<answeredQuestion> answerQuestions;
+//	private List<answeredQuestion> answerQuestions;
 	private EnglishQuizGame Egame;
 	private String gameFilePath = "D:\\Documents\\Course3\\oop\\DictionaryApp\\src"
 			+ "\\main\\resources\\Utils\\questions.txt";
@@ -94,10 +92,13 @@ public class GameController implements Initializable {
 
 		scoreLabel.setText("Score: " + score);
 		correctLabel.setVisible(false);
+		timerLabel.setVisible(true);
 		submitButton.setDisable(true);
 		incorrectLabel.setVisible(false);
 		correctAnswerTitle.setVisible(false);
 		correctAnswerContent.setVisible(false);
+		restartGame.setVisible(false);
+		answerField.setDisable(false);
 		answerField.clear();
 		startTimer();
 	}
@@ -107,7 +108,7 @@ public class GameController implements Initializable {
 			timer.cancel();
 		}
 		timer = new Timer();
-		answerTime = 5; // Thiết lập thời gian đếm ngược bắt đầu từ 5 giây
+		answerTime = 8; // Thiết lập thời gian đếm ngược bắt đầu từ 5 giây
 		timer.scheduleAtFixedRate(new TimerTask() {
 			@Override
 			public void run() {
@@ -170,7 +171,7 @@ public class GameController implements Initializable {
 					new Thread(() -> {
 						try {
 							Thread.sleep(2000); // Đợi 2 giây
-							Platform.runLater(this::endGame);
+							Platform.runLater(this::displayNextQuestion);
 						} catch (InterruptedException ex) {
 							Thread.currentThread().interrupt();
 						}
@@ -215,20 +216,22 @@ public class GameController implements Initializable {
 				}
 			} else {
 				if (currentQuestion.getCorrectAnswer().equalsIgnoreCase(fillAnswer)) {
-					correctLabel.setVisible(true);
 					score++;
 					scoreLabel.setText("Score: " + score);
+					submitButton.setVisible(false);
+					correctLabel.setVisible(true);
+					answerField.setDisable(true);
 				} else {
 					incorrectLabel.setVisible(true);
 					correctAnswerTitle.setVisible(true);
 					correctAnswerContent.setText(currentQuestion.getCorrectAnswer());
 					correctAnswerContent.setVisible(true);
-					answerField.setVisible(false);
-					answerTitle.setVisible(false);
+					submitButton.setVisible(false);
+					answerField.setDisable(true);
 					new Thread(() -> {
 						try {
 							Thread.sleep(3000); // Đợi 2 giây
-							Platform.runLater(this::endGame);
+							Platform.runLater(this::displayNextQuestion);
 						} catch (InterruptedException ex) {
 							Thread.currentThread().interrupt();
 						}
@@ -360,6 +363,7 @@ public class GameController implements Initializable {
 		answerField.clear();
 		correctAnswerContent.setVisible(false);
 		correctAnswerTitle.setVisible(false);
+		incorrectLabel.setVisible(false);
 	}
 
 	private void displayNextQuestion() {
@@ -396,6 +400,7 @@ public class GameController implements Initializable {
 				answerField.setVisible(true);
 				answerTitle.setVisible(true);
 				submitButton.setVisible(true);
+				answerField.setDisable(false);
 
 //				if (answerField.getText().trim().equals(""))
 //					submitButton.setDisable(true);
@@ -436,6 +441,21 @@ public class GameController implements Initializable {
 		timerLabel.setVisible(false);
 		correctAnswerTitle.setVisible(false);
 		answerTitle.setVisible(false);
+		restartGame.setVisible(true);
+	}
+
+	@FXML
+	void handleRestartGameAction(ActionEvent event) {
+		currentQuestionIndex = 0; 
+	    score = 0;                 
+	    hasAnswered = false;       
+	    Collections.shuffle(questions); 
+	    
+	    scoreLabel.setText("Score: 0");  
+	    restartGame.setVisible(false);  
+	    resetButtonColors();            
+	    
+		initialize(null, null);
 	}
 
 	@FXML
@@ -444,42 +464,42 @@ public class GameController implements Initializable {
 	private Label questionLabel, correctLabel, incorrectLabel, scoreLabel, answerTitle, correctAnswerTitle,
 			correctAnswerContent, timerLabel;
 	@FXML
-	private Button optionA, optionB, optionC, optionD, submitButton, reviewButton;
+	private Button optionA, optionB, optionC, optionD, submitButton, reviewButton, restartGame;
 }
 
-class answeredQuestion {
-	private String type;
-	private String questionText;
-	private String[] options;
-	private String correctAnswer;
-	private String selectedAnswer;
-
-	public answeredQuestion(String type, String questionText, String[] options, String correctAnswer,
-			String selectedAnswer) {
-		this.type = type;
-		this.questionText = questionText;
-		this.options = options;
-		this.correctAnswer = correctAnswer;
-		this.selectedAnswer = selectedAnswer;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	public String getQuestionText() {
-		return questionText;
-	}
-
-	public String[] getOptions() {
-		return options;
-	}
-
-	public String getCorrectAnswer() {
-		return correctAnswer;
-	}
-
-	public String getSelectedAnswer() {
-		return selectedAnswer;
-	}
-}
+//class answeredQuestion {
+//	private String type;
+//	private String questionText;
+//	private String[] options;
+//	private String correctAnswer;
+//	private String selectedAnswer;
+//
+//	public answeredQuestion(String type, String questionText, String[] options, String correctAnswer,
+//			String selectedAnswer) {
+//		this.type = type;
+//		this.questionText = questionText;
+//		this.options = options;
+//		this.correctAnswer = correctAnswer;
+//		this.selectedAnswer = selectedAnswer;
+//	}
+//
+//	public String getType() {
+//		return type;
+//	}
+//
+//	public String getQuestionText() {
+//		return questionText;
+//	}
+//
+//	public String[] getOptions() {
+//		return options;
+//	}
+//
+//	public String getCorrectAnswer() {
+//		return correctAnswer;
+//	}
+//
+//	public String getSelectedAnswer() {
+//		return selectedAnswer;
+//	}
+//}

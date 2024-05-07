@@ -65,7 +65,7 @@ public class DictionaryController implements Initializable {
     }
 
     @FXML
-    private void showComponent(String path) {
+    public void showComponent(String path) {
         try {
             AnchorPane component = FXMLLoader.load(getClass().getResource(path));
             setNode(component);
